@@ -187,7 +187,7 @@
             Seven character habits. One fridge list. Starts this weekend.
           </p>
           <div class="mt-8 mb-5 sm:mt-10 sm:mb-6">
-            <a href="https://payhip.com/b/nTy79" class="cta-btn inline-block w-full rounded-lg bg-gold px-8 py-4 font-heading text-base font-bold text-white transition-all sm:w-auto sm:px-14 sm:py-5 sm:text-lg">
+            <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="cta-btn inline-block w-full rounded-lg bg-gold px-8 py-4 font-heading text-base font-bold text-white transition-all sm:w-auto sm:px-14 sm:py-5 sm:text-lg">
               Get the System  -  $9 &nbsp;→
             </a>
           </div>
@@ -215,5 +215,54 @@
       </div>
     </div>
   </section>
+
+  <footer class="bg-[#141e2e]">
+    <div class="mx-auto max-w-4xl px-5 py-8 text-center">
+      <p class="text-[11px] leading-relaxed text-gray-600 sm:text-xs">
+        My Child&rsquo;s First Earning System is an educational guide for families. Nothing in this guide constitutes financial, legal, or tax advice. Every family and child is different, and results depend on consistency and individual circumstances. For specific financial planning needs, consult a licensed financial advisor.
+      </p>
+      <p class="mt-4 text-[11px] text-gray-600 sm:text-xs">
+        &copy; 2026 Raise Money-Smart Kids. All rights reserved. @raisemoneysmartkidshub
+      </p>
+    </div>
+  </footer>
+
+  <div id=\"sticky-mobile\" class=\"fixed inset-x-0 bottom-0 z-50 block border-t border-gold/30 bg-navy-900/95 px-4 py-3 backdrop-blur sm:hidden\" style=\"display:none!important;\">
+    <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="sticky-cta flex w-full items-center justify-center rounded-full bg-gold px-6 py-3 font-heading text-sm font-bold text-white">
+      Get the System  -  $9 &nbsp;→
+    </a>
+  </div>
+  <div id=\"sticky-desktop\" class=\"fixed bottom-5 right-5 z-50 sm:block\" style=\"display:none!important;\">
+    <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="sticky-cta inline-block rounded-full bg-gold px-6 py-3 font-heading text-sm font-bold text-white">
+      Get the System  -  $9 &nbsp;→
+    </a>
+  </div>
+
+  <script>
+    (function() {
+      var trigger = document.getElementById('habits-trigger');
+      if (!trigger) return;
+      var mobileCta  = document.getElementById('sticky-mobile');
+      var desktopCta = document.getElementById('sticky-desktop');
+
+      function showCtas() {
+        mobileCta.style.removeProperty('display');
+        desktopCta.style.removeProperty('display');
+        mobileCta.style.display  = '';
+        desktopCta.style.display = '';
+      }
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            showCtas();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+
+      observer.observe(trigger);
+    })();
+  </script>
 </body>
 </html>
