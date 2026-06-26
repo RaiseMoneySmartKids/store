@@ -46,7 +46,8 @@
   </script>
   <style>
     /* Smooth scroll */
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    * { box-sizing: border-box; }
 
     /* Custom gradient for hero — clean premium purple, no patterns */
     .hero-gradient {
@@ -87,13 +88,6 @@
       width: 100%;
       height: 1px;
       background: linear-gradient(90deg, transparent, #C8A165, transparent);
-    }
-    @media (min-width: 1024px) {
-      .eyebrow-underline::after {
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(90deg, transparent, #C8A165, transparent);
-      }
     }
 
     /* Play button pulse */
@@ -145,11 +139,9 @@
       width: 1px;
       background: rgba(200, 161, 101, 0.15);
     }
-    /* In 2-col mobile: hide divider on right-column items (2nd, 4th) */
     .stat-divider:nth-child(2n)::after {
       display: none;
     }
-    /* In 4-col desktop: show all except last */
     @media (min-width: 640px) {
       .stat-divider:nth-child(2n)::after {
         display: block;
@@ -157,13 +149,6 @@
       .stat-divider:last-child::after {
         display: none;
       }
-    }
-    /* FAQ accordion icon rotation */
-    .faq-item.faq-open .faq-icon {
-      transform: rotate(45deg);
-    }
-    .faq-icon {
-      transition: transform 0.3s ease;
     }
 
     /* Product mockup animations */
@@ -186,25 +171,17 @@
     }
   </style>
 </head>
-<body class="bg-navy-900 font-body text-white antialiased pb-16 sm:pb-0">
+<body class="bg-navy-900 font-body text-white antialiased pb-16 sm:pb-0 overflow-x-hidden">
 
-
-  <!-- ===== SECTION 1: HERO ===== -->
   <section class="hero-gradient relative overflow-hidden">
-
     <div class="relative z-10 mx-auto max-w-7xl px-5 pt-20 pb-14 sm:pt-28 sm:pb-20 md:pt-36 md:pb-24">
-
-      <!-- Eyebrow — centered above the grid -->
+      
       <p class="eyebrow-underline mb-10 text-center font-heading text-[10px] font-semibold uppercase tracking-[0.25em] text-gold sm:mb-12 sm:text-xs sm:tracking-[0.35em]">
         My Child's First Earning System &middot; Ages 4&ndash;16
       </p>
 
       <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
-
-        <!-- LEFT COLUMN — text content -->
         <div class="text-center lg:text-left">
-
-          <!-- Headline -->
           <h1 class="mt-6 mb-5 font-hero leading-[1.1] sm:mt-8 sm:mb-6">
             <span class="block text-[1.0rem] font-bold tracking-wide text-white sm:text-[1.37rem] md:text-[1.54rem]">The</span>
             <span class="block text-[1.67rem] font-bold tracking-wide text-white sm:text-[2.24rem] md:text-[2.53rem]">First Earning System</span>
@@ -212,31 +189,26 @@
             <span class="block text-[1.7rem] font-bold leading-snug sm:text-[2.3rem] md:text-[2.6rem]" style="color:#f0d184;">Not Just the Habit</span>
           </h1>
 
-          <!-- Concrete outcome line -->
           <p class="mx-auto mt-3 max-w-2xl font-heading text-base font-semibold leading-snug text-gold/90 sm:mt-4 sm:text-xl md:text-[1.36rem] lg:mx-0">
             A done-with-you family system that turns &ldquo;Can I have money?&rdquo; into &ldquo;What can I do to earn it?&rdquo; - and builds the responsibility, patience, and confidence to back it up.
           </p>
 
-          <!-- Subheadline -->
           <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-gray-300/80 sm:mt-6 sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed lg:mx-0">
             You already know money skills matter. What's harder to find is a system that teaches them at home - without turning every conversation into a lecture. This guide gives your family a weekly structure where your child chooses real work, earns real money, and learns what to do with it. Share first. Save toward something. Spend what's left - and wait overnight before you do.<br /><br />
             Seven character habits. One fridge list. Starts this weekend.
           </p>
 
-          <!-- CTA Button -->
           <div class="mt-8 mb-5 sm:mt-10 sm:mb-6">
             <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="cta-btn inline-block w-full rounded-lg bg-gold px-8 py-4 font-heading text-base font-bold text-white transition-all sm:w-auto sm:px-14 sm:py-5 sm:text-lg">
               Get the System  -  $9 &nbsp;→
             </a>
           </div>
 
-          <!-- Risk reversal -->
           <p class="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold text-gold/90 sm:text-sm lg:justify-start">
             <svg class="h-3.5 w-3.5 text-gold/90" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
             30-day money-back guarantee &mdash; if it doesn&rsquo;t click for your family, you get a refund
           </p>
 
-          <!-- Trust Strip -->
           <p class="mt-4 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-gray-400 sm:text-sm lg:justify-start">
             <span class="inline-flex items-center gap-1">
               <svg class="h-3.5 w-3.5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
@@ -249,21 +221,69 @@
             <span class="text-gray-500">&middot;</span>
             <span>Print and start this weekend</span>
           </p>
-
         </div>
 
-        <!-- RIGHT COLUMN — product mockup -->
         <div class="flex items-center justify-center lg:justify-end">
           <div class="mockup-animate mockup-hover w-full max-w-[490px] sm:max-w-[631px] lg:max-w-[736px] xl:max-w-[806px]">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABtsAAAbbCAYAAABv5hs5AAAAtGVYSWZJSSoACAAAAAYAEgEDAAEAAAABAAAAGgEFAAEAAABWAAAAGwEFAAEAAABeAAAAKAEDAAEAAAACAAAAEwIDAAEAAAABAAAAaYcEAAEAAABmAAAAAAAAAJwAAAABAAAAnAAAAAEAAAAGAACQBwAEAAAAMDIxMAGRBwAEAAAAAQIDAACgBwAEAAAAMDEwMAGgAwABAAAA//8AAAKgBAABAAAA2wYAAAOgBAABAAAA2wYAAAAAAADEwVHnAAAACXBIWXMAABf+AAAX/gH00rVLAAAF5mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9 ' alt="Product Mockup" class="w-full h-auto">
+            <img src="images/mockup.png" alt="My Child's First Earning System Premium Mockup" class="w-full h-auto object-contain">
           </div>
         </div>
-
       </div>
 
     </div>
-
   </section>
+
+  <div class="stat-strip-bg border-y border-gold/15">
+    <div class="mx-auto max-w-7xl px-5 py-8 sm:py-10 md:py-12">
+      <div class="grid grid-cols-2 gap-y-8 text-center sm:grid-cols-4 sm:gap-y-0">
+        <div class="stat-divider px-2">
+          <p class="stat-number font-display text-3xl font-bold text-gold sm:text-4xl md:text-5xl">20</p>
+          <p class="mt-1 font-heading text-[10px] font-medium uppercase tracking-wider text-gray-400 sm:text-xs">Actionable Pages</p>
+        </div>
+        <div class="stat-divider px-2">
+          <p class="stat-number font-display text-3xl font-bold text-gold sm:text-4xl md:text-5xl">7</p>
+          <p class="mt-1 font-heading text-[10px] font-medium uppercase tracking-wider text-gray-400 sm:text-xs">Character Habits</p>
+        </div>
+        <div class="stat-divider px-2">
+          <p class="stat-number font-display text-3xl font-bold text-gold sm:text-4xl md:text-5xl">1</p>
+          <p class="mt-1 font-heading text-[10px] font-medium uppercase tracking-wider text-gray-400 sm:text-xs">Fridge Ready List</p>
+        </div>
+        <div class="px-2">
+          <p class="stat-number font-display text-3xl font-bold text-gold sm:text-4xl md:text-5xl">100%</p>
+          <p class="mt-1 font-heading text-[10px] font-medium uppercase tracking-wider text-gray-400 sm:text-xs">Family Operated</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sticky-mobile" class="fixed bottom-0 left-0 right-0 z-50 border-t border-gold/20 bg-navy-950 p-4 sm:hidden" style="display:none!important;">
+    <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="sticky-cta flex w-full items-center justify-center rounded-full bg-gold px-6 py-3 font-heading text-sm font-bold text-white">
+      Get the System  -  $9 &nbsp;&rarr;
+    </a>
+  </div>
+
+  <div id="sticky-desktop" class="fixed bottom-5 right-5 z-50 hidden sm:block" style="display:none!important;">
+    <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="sticky-cta inline-block rounded-full bg-gold px-6 py-3 font-heading text-sm font-bold text-white">
+      Get the System  -  $9 &nbsp;&rarr;
+    </a>
+  </div>
+
+  <script>
+    (function() {
+      // Small automated trigger calculation for sticky scroll bars
+      window.addEventListener('scroll', function() {
+        var mobileCta = document.getElementById('sticky-mobile');
+        var desktopCta = document.getElementById('sticky-desktop');
+        if (window.scrollY > 350) {
+          if(mobileCta) mobileCta.style.setProperty('display', 'block', 'important');
+          if(desktopCta) desktopCta.style.setProperty('display', 'block', 'important');
+        } else {
+          if(mobileCta) mobileCta.style.setProperty('display', 'none', 'important');
+          if(desktopCta) desktopCta.style.setProperty('display', 'none', 'important');
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
