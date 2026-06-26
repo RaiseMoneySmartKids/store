@@ -85,19 +85,12 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, #C8A165, transparent);
     }
-    @media (min-width: 1024px) {
-      .eyebrow-underline::after {
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(90deg, transparent, #C8A165, transparent);
-      }
-    }
 
     .play-ring {
       animation: pulse-ring 2.5s ease-out infinite;
     }
     @keyframes pulse-ring {
-      0 { box-shadow: 0 0 0 0 rgba(200, 161, 101, 0.35); }
+      0% { box-shadow: 0 0 0 0 rgba(200, 161, 101, 0.35); }
       70% { box-shadow: 0 0 0 18px rgba(200, 161, 101, 0); }
       100% { box-shadow: 0 0 0 0 rgba(200, 161, 101, 0); }
     }
@@ -149,14 +142,14 @@
       }
     }
 
-    @keyframes mockup-enter {
-      from { opacity: 0; transform: translateY(14px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
     .mockup-animate {
       animation: mockup-enter 0.7s ease-out forwards;
       animation-delay: 0.25s;
       opacity: 0;
+    }
+    @keyframes mockup-enter {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .mockup-hover {
       transition: transform 0.35s ease, filter 0.35s ease;
@@ -170,6 +163,7 @@
 </head>
 <body class="bg-navy-900 font-body text-white antialiased pb-16 sm:pb-0 overflow-x-hidden">
 
+  <!-- ===== SECTION 1: HERO ===== -->
   <section class="hero-gradient relative overflow-hidden">
     <div class="relative z-10 mx-auto max-w-7xl px-5 pt-20 pb-14 sm:pt-28 sm:pb-20 md:pt-36 md:pb-24">
       
@@ -220,6 +214,7 @@
           </p>
         </div>
 
+        <!-- RIGHT COLUMN — Embedded Direct ImgBB Mockup Link -->
         <div class="flex items-center justify-center lg:justify-end">
           <div class="mockup-animate mockup-hover w-full max-w-[490px] sm:max-w-[631px] lg:max-w-[736px] xl:max-w-[806px]">
             <img src="https://i.ibb.co/9R3YMF4/mockup.png" alt="My Child's First Earning System Mockup" class="w-full h-auto">
@@ -230,6 +225,7 @@
     </div>
   </section>
 
+  <!-- ===== SECTION 2: STAT STRIP ===== -->
   <div class="stat-strip-bg border-y border-gold/15">
     <div class="mx-auto max-w-7xl px-5 py-8 sm:py-10 md:py-12">
       <div class="grid grid-cols-2 gap-y-8 text-center sm:grid-cols-4 sm:gap-y-0">
@@ -253,19 +249,78 @@
     </div>
   </div>
 
+  <!-- ===== SECTION 3: CORE ROADBLOCK (Removes display:none restrictions) ===== -->
+  <section class="py-16 sm:py-24 bg-navy-950">
+    <div class="mx-auto max-w-3xl px-5 text-center">
+      <h2 class="font-display text-2xl sm:text-4xl text-white mb-6">The Entitlement Trap</h2>
+      <p class="text-base sm:text-lg text-gray-300 leading-relaxed mb-6">
+        Most chore charts fail because they link money directly to base-level expectations like making the bed or clearing a dinner plate. This accidentally teaches kids to demand a payout for just existing in a household.
+      </p>
+      <p class="text-base sm:text-lg text-gold/90 font-medium">
+        We change the game by separating basic citizenship from real, value-driven opportunity.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4: HOW IT WORKS PILLARS ===== -->
+  <section class="py-16 sm:py-24 bg-navy-900">
+    <div class="mx-auto max-w-5xl px-5">
+      <h2 class="font-display text-2xl sm:text-4xl text-center text-white mb-12">The Three Pillars of the System</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-navy-800 p-8 rounded-xl border border-gold/10">
+          <div class="text-gold text-2xl font-bold mb-4">01</div>
+          <h3 class="font-heading text-lg font-bold mb-2">The Work Choice</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Kids choose tasks from a pre-approved menu of extra family tasks, shifting their mindset from tracking duties to actively seeking out open opportunities.</p>
+        </div>
+        <div class="bg-navy-800 p-8 rounded-xl border border-gold/10">
+          <div class="text-gold text-2xl font-bold mb-4">02</div>
+          <h3 class="font-heading text-lg font-bold mb-2">The Balanced Split</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Earnings drop cleanly into three distinct paths: Share a little piece first, Save toward a bigger vision, and Spend what remains responsibly.</p>
+        </div>
+        <div class="bg-navy-800 p-8 rounded-xl border border-gold/10">
+          <div class="text-gold text-2xl font-bold mb-4">03</div>
+          <h3 class="font-heading text-lg font-bold mb-2">The Delay Rule</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">A simple standard that stops impulsive buying in its tracks. Any standard purchase requires a clean 24-hour waiting cooling-off window.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5: FINAL SYSTEM IMPLEMENTATION CTA ===== -->
+  <section class="py-16 sm:py-24 hero-gradient border-t border-gold/15 text-center">
+    <div class="mx-auto max-w-3xl px-5">
+      <h2 class="font-display text-2xl sm:text-4xl text-white mb-4">Ready to start this weekend?</h2>
+      <p class="text-gray-300 text-base sm:text-lg mb-8 max-w-xl mx-auto">Get instant access to the complete 20-page system, implementation sheets, and the printable fridge-ready layout sheet.</p>
+      
+      <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="cta-btn inline-block w-full rounded-lg bg-gold px-12 py-4 font-heading text-base font-bold text-white transition-all sm:w-auto sm:text-lg">
+        Download the System Now  -  $9
+      </a>
+      
+      <p class="mt-4 text-xs text-gray-400">Secure checkout handled securely via Payhip</p>
+    </div>
+  </section>
+
   <div id="habits-trigger" class="w-full h-1"></div>
 
+  <!-- Sticky Mobile Bottom Bar -->
   <div id="sticky-mobile" class="fixed bottom-0 left-0 right-0 z-50 border-t border-gold/20 bg-navy-950 p-4 sm:hidden" style="display:none;">
     <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="sticky-cta flex w-full items-center justify-center rounded-full bg-gold px-6 py-3 font-heading text-sm font-bold text-white">
       Get the System  -  $9 &nbsp;&rarr;
     </a>
   </div>
 
+  <!-- Sticky Desktop Pill Bar -->
   <div id="sticky-desktop" class="fixed bottom-5 right-5 z-50 hidden sm:block" style="display:none;">
     <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="sticky-cta inline-block rounded-full bg-gold px-6 py-3 font-heading text-sm font-bold text-white">
       Get the System  -  $9 &nbsp;&rarr;
     </a>
   </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-navy-950 py-8 text-center text-xs text-gray-500 border-t border-white/5">
+    <p>&copy; 2026 Elevence Media. All rights reserved.</p>
+  </footer>
 
   <script>
     (function() {
@@ -284,4 +339,25 @@
         desktopCta.style.display = 'none';
       }
 
-      var observer = new IntersectionObserver(function(entries
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            showCtas();
+          }
+        });
+      }, { threshold: 0.1 });
+
+      observer.observe(trigger);
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 400) {
+          showCtas();
+        } else if (window.scrollY < 100) {
+          hideCtas();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
