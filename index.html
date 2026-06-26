@@ -45,11 +45,9 @@
     }
   </script>
   <style>
-    /* Smooth scroll */
     html { scroll-behavior: smooth; overflow-x: hidden; }
     * { box-sizing: border-box; }
 
-    /* Custom gradient for hero — clean premium purple, no patterns */
     .hero-gradient {
       background: linear-gradient(
         180deg,
@@ -64,7 +62,6 @@
       );
     }
 
-    /* Stat strip — navy to contrast against purple hero */
     .stat-strip-bg {
       background: linear-gradient(
         180deg,
@@ -74,7 +71,6 @@
       );
     }
 
-    /* Gold underline for eyebrow */
     .eyebrow-underline {
       position: relative;
       display: inline-block;
@@ -89,18 +85,23 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, #C8A165, transparent);
     }
+    @media (min-width: 1024px) {
+      .eyebrow-underline::after {
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(90deg, transparent, #C8A165, transparent);
+      }
+    }
 
-    /* Play button pulse */
     .play-ring {
       animation: pulse-ring 2.5s ease-out infinite;
     }
     @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(200, 161, 101, 0.35); }
+      0 { box-shadow: 0 0 0 0 rgba(200, 161, 101, 0.35); }
       70% { box-shadow: 0 0 0 18px rgba(200, 161, 101, 0); }
       100% { box-shadow: 0 0 0 0 rgba(200, 161, 101, 0); }
     }
 
-    /* CTA hover glow */
     .cta-btn {
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(200, 161, 101, 0.25);
@@ -110,7 +111,6 @@
       transform: translateY(-1px);
     }
 
-    /* Sticky CTA */
     .sticky-cta {
       transition: all 0.3s ease;
       box-shadow: 0 4px 20px rgba(200, 161, 101, 0.35);
@@ -120,13 +120,11 @@
       transform: translateY(-1px);
     }
 
-    /* Stat number slab-serif styling */
     .stat-number {
       font-variant-numeric: lining-nums;
       letter-spacing: -0.02em;
     }
 
-    /* Divider between stats */
     .stat-divider {
       position: relative;
     }
@@ -151,7 +149,6 @@
       }
     }
 
-    /* Product mockup animations */
     @keyframes mockup-enter {
       from { opacity: 0; transform: translateY(14px); }
       to { opacity: 1; transform: translateY(0); }
@@ -225,7 +222,7 @@
 
         <div class="flex items-center justify-center lg:justify-end">
           <div class="mockup-animate mockup-hover w-full max-w-[490px] sm:max-w-[631px] lg:max-w-[736px] xl:max-w-[806px]">
-            <img src="images/mockup.png" alt="My Child's First Earning System Premium Mockup" class="w-full h-auto object-contain">
+            <img src="https://i.ibb.co/9R3YMF4/mockup.png" alt="My Child's First Earning System Mockup" class="w-full h-auto">
           </div>
         </div>
       </div>
@@ -256,13 +253,15 @@
     </div>
   </div>
 
-  <div id="sticky-mobile" class="fixed bottom-0 left-0 right-0 z-50 border-t border-gold/20 bg-navy-950 p-4 sm:hidden" style="display:none!important;">
+  <div id="habits-trigger" class="w-full h-1"></div>
+
+  <div id="sticky-mobile" class="fixed bottom-0 left-0 right-0 z-50 border-t border-gold/20 bg-navy-950 p-4 sm:hidden" style="display:none;">
     <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="sticky-cta flex w-full items-center justify-center rounded-full bg-gold px-6 py-3 font-heading text-sm font-bold text-white">
       Get the System  -  $9 &nbsp;&rarr;
     </a>
   </div>
 
-  <div id="sticky-desktop" class="fixed bottom-5 right-5 z-50 hidden sm:block" style="display:none!important;">
+  <div id="sticky-desktop" class="fixed bottom-5 right-5 z-50 hidden sm:block" style="display:none;">
     <a href="https://payhip.com/b/nTy79" target="_blank" rel="noopener" class="sticky-cta inline-block rounded-full bg-gold px-6 py-3 font-heading text-sm font-bold text-white">
       Get the System  -  $9 &nbsp;&rarr;
     </a>
@@ -270,20 +269,19 @@
 
   <script>
     (function() {
-      // Small automated trigger calculation for sticky scroll bars
-      window.addEventListener('scroll', function() {
-        var mobileCta = document.getElementById('sticky-mobile');
-        var desktopCta = document.getElementById('sticky-desktop');
-        if (window.scrollY > 350) {
-          if(mobileCta) mobileCta.style.setProperty('display', 'block', 'important');
-          if(desktopCta) desktopCta.style.setProperty('display', 'block', 'important');
-        } else {
-          if(mobileCta) mobileCta.style.setProperty('display', 'none', 'important');
-          if(desktopCta) desktopCta.style.setProperty('display', 'none', 'important');
-        }
-      });
-    })();
-  </script>
+      var trigger = document.getElementById('habits-trigger');
+      if (!trigger) return;
+      var mobileCta  = document.getElementById('sticky-mobile');
+      var desktopCta = document.getElementById('sticky-desktop');
 
-</body>
-</html>
+      function showCtas() {
+        mobileCta.style.display = 'flex';
+        desktopCta.style.display = 'block';
+      }
+
+      function hideCtas() {
+        mobileCta.style.display = 'none';
+        desktopCta.style.display = 'none';
+      }
+
+      var observer = new IntersectionObserver(function(entries
