@@ -2275,5 +2275,24 @@
     })();
   </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const DEFAULT_PRODUCT_PRICE = 9.00;
+  document.querySelectorAll('.payhip-buy-button').forEach(function(button){
+    button.addEventListener('click', function(){
+      if (typeof pintrk === 'function') {
+        const PRODUCT_PRICE = parseFloat(button.dataset.price) || DEFAULT_PRODUCT_PRICE;
+        pintrk('track','Checkout',{
+          value: PRODUCT_PRICE,
+          order_quantity: 1,
+          currency:'USD'
+        });
+      }
+    });
+  });
+});
+</script>
+
 </body>
 </html>
