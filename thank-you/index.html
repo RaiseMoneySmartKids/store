@@ -133,9 +133,6 @@
     .fade-up { animation: fade-up 0.7s ease-out forwards; opacity: 0; }
   </style>
 
-  <!-- Payhip embed script -->
-  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
-
   <!-- Pinterest Tag -->
   <script>
   !function(e){
@@ -509,6 +506,9 @@
       observer.observe(trigger);
     })();
   </script>
+
+  <!-- Payhip embed script — loaded at end of body so all buy buttons exist before it scans the DOM -->
+  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
 
   <!-- Pinterest Page View (No Purchase Tracking - Payhip needs to load freely) -->
   <!-- The $9 purchase is tracked on the $9 landing page -->
