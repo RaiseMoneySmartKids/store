@@ -510,34 +510,9 @@
     })();
   </script>
 
-  <!-- Pinterest Purchase Events - Funnel Tracking -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-
-        // Track the initial $9 purchase (arrived on thank you page)
-        const INITIAL_PURCHASE_PRICE = 9.00;
-        
-        // Track the $37 upsell (conversion on thank you page)
-        const UPSELL_PRICE = 37.00;
-
-        if (typeof pintrk === 'function') {
-            // First event: $9 initial purchase
-            pintrk('track', 'Purchase', {
-                value: INITIAL_PURCHASE_PRICE,
-                order_quantity: 1,
-                currency: 'USD'
-            });
-
-            // Second event: $37 upsell (if they convert)
-            pintrk('track', 'Purchase', {
-                value: UPSELL_PRICE,
-                order_quantity: 1,
-                currency: 'USD'
-            });
-        }
-
-    });
-  </script>
+  <!-- Pinterest Page View (No Purchase Tracking - Payhip needs to load freely) -->
+  <!-- The $9 purchase is tracked on the $9 landing page -->
+  <!-- The $37 upsell should be tracked when they complete checkout for $37 -->
 
 </body>
 </html>
