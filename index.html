@@ -1,44 +1,216 @@
-This is still the placeholder code. You have not replaced the Tag ID yet.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raise Creators, Not Consumers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#141e2e',
+              800: '#1a2a3e',
+              700: '#22344c',
+              600: '#253556',
+              500: '#2e4268',
+            },
+            gold: {
+              DEFAULT: '#C8A165',
+              light: '#d4b37e',
+              dark: '#b08a4e',
+              pale: '#f5e8c6',
+              accent: '#f0d184',
+            },
+            purple: {
+              DEFAULT: '#443f5f',
+              dark: '#362f50',
+              light: '#554e74',
+            },
+            cream: '#f5e8c6',
+            teal: {
+              custom: '#d1d5db',
+            },
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            hero: ['Libre Baskerville', 'Georgia', 'serif'],
+            heading: ['Montserrat', 'sans-serif'],
+            body: ['Lato', 'sans-serif'],
+            anton: ['Anton', 'Impact', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    * { box-sizing: border-box; }
 
-Your current code contains:
+    .hero-gradient {
+      background: linear-gradient(
+        180deg,
+        #1e1a2e 0%,
+        #282340 12%,
+        #312c4a 25%,
+        #3a3554 40%,
+        #413c5b 55%,
+        #443f5f 70%,
+        #484363 85%,
+        #4c4768 100%
+      );
+    }
 
-pintrk('load', 'YOUR_TAG_ID');
+    .eyebrow-underline {
+      position: relative;
+      display: inline-block;
+    }
+    .eyebrow-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #C8A165, transparent);
+    }
 
-It must be:
+    .cta-btn {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(200, 161, 101, 0.25);
+    }
+    .cta-btn:hover {
+      box-shadow: 0 6px 25px rgba(200, 161, 101, 0.45);
+      transform: translateY(-1px);
+    }
 
-pintrk('load', '2614296672048');
+    .cta-wrap { position: relative; display: inline-block; }
+    .cta-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 0.5rem;
+      animation: cta-pulse 2.8s ease-out infinite;
+      pointer-events: none;
+    }
+    @keyframes cta-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(200, 161, 101, 0.35); }
+      70%  { box-shadow: 0 0 0 14px rgba(200, 161, 101, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(200, 161, 101, 0); }
+    }
 
-And farther down you still have:
+    .check-gold svg { color: #C8A165; }
 
-src="https://ct.pinterest.com/v3/?event=init&tid=YOUR_TAG_ID&noscript=1"
+    .divider {
+      height: 1px;
+      width: 3rem;
+      margin: 0 auto;
+      background: linear-gradient(90deg, transparent, rgba(200,161,101,0.35), transparent);
+    }
 
-It must become:
+    .panel {
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0.9rem;
+    }
 
-src="https://ct.pinterest.com/v3/?event=init&tid=2614296672048&noscript=1"
-Replace this entire Pinterest section with this one
-<!-- Pinterest Tag -->
-<script>
-!function(e){
-if(!window.pintrk){
-window.pintrk=function(){
-window.pintrk.queue.push(Array.prototype.slice.call(arguments))
-};
-var n=window.pintrk;
-n.queue=[];
-n.version="3.0";
-var t=document.createElement("script");
-t.async=!0;
-t.src=e;
-var r=document.getElementsByTagName("script")[0];
-r.parentNode.insertBefore(t,r)
-}}("https://s.pinimg.com/ct/core.js");
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fade-up 0.7s ease-out forwards; opacity: 0; }
+  </style>
 
-pintrk('load', '2614296672048');
-pintrk('page');
-</script>
+  <!-- Pinterest Tag Base Code -->
+  <script>
+  !function(e){
+  if(!window.pintrk){
+  window.pintrk=function(){
+  window.pintrk.queue.push(Array.prototype.slice.call(arguments))
+  };
+  var n=window.pintrk;
+  n.queue=[];
+  n.version="3.0";
+  var t=document.createElement("script");
+  t.async=!0;
+  t.src=e;
+  var r=document.getElementsByTagName("script")[0];
+  r.parentNode.insertBefore(t,r);
+  }
+  }("https://s.pinimg.com/ct/core.js");
+  
+  // Tag ID Initialization
+  pintrk('load', '2614296672048');
+  
+  // Page Visit Event
+  pintrk('page');
+  </script>
+  <noscript>
+  <img
+  height="1"
+  width="1"
+  style="display:none;"
+  alt=""
+  src="https://ct.pinterest.com/v3/?event=init&tid=2614296672048&noscript=1"
+  />
+  </noscript>
+  <!-- End Pinterest Tag -->
+</head>
+<body class="hero-gradient font-body text-white antialiased pb-24 sm:pb-0">
 
-<noscript>
-<img height="1" width="1" style="display:none;" alt=""
-src="https://ct.pinterest.com/v3/?event=init&tid=2614296672048&noscript=1" />
-</noscript>
-<!-- end Pinterest Tag -->
+  <div class="mx-auto max-w-2xl px-5 py-16 sm:px-6 sm:py-20">
+
+    <!-- ===== HEADLINE ===== -->
+    <div id="reveal-trigger" class="mb-5 text-center sm:mb-6">
+      <p class="eyebrow-underline mb-6 pb-2 font-heading text-xl font-semibold uppercase tracking-[0.3em] text-gold/90 sm:text-2xl">
+        Parenting Guide
+      </p>
+      <h1 class="mb-5 font-anton uppercase leading-[1.1] tracking-wide">
+        <span class="block text-[1.9rem] text-white sm:text-[2.6rem] md:text-[3rem]">Raise Creators, Not</span>
+        <span class="block text-[2.9rem] text-gold-accent sm:text-[4rem] md:text-[4.6rem]">Consumers</span>
+      </h1>
+      <p class="mb-5 text-base leading-relaxed text-gray-300 sm:text-lg">
+        Help your child transition from passive consumer to active creator with practical financial literacy, modern skills, and real-world confidence.
+      </p>
+    </div>
+
+    <!-- ===== PRODUCT MOCKUP ===== -->
+    <div class="mb-5 text-center sm:mb-6">
+      <h2 class="mb-2 font-display text-[1.8rem] font-bold leading-tight text-gold-accent sm:text-[2.3rem]">
+        The First Guide Changes This Weekend
+      </h2>
+
+      <p class="mb-1 whitespace-nowrap font-body text-[clamp(9px,2.45vw,15px)] font-bold tracking-[0.02em] text-white">
+        One Complete Roadmap From Their First Dollar to Their First Paycheck
+      </p>
+      <p class="mb-5 font-heading text-[clamp(8px,2.1vw,13px)] font-semibold uppercase tracking-[0.1em] text-gold-accent/90 whitespace-nowrap sm:mb-6">
+        Ages 4&ndash;16 &bull; Practical Exercises &bull; Instant Download
+      </p>
+
+      <!-- Product mockup -->
+      <img
+        src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCAPJBXgDASIAAhEBAxEB/8QAHQAAAQMFAQAAAAAAAAAAAAAAAAEGBwIDBatch330iS4Rj0Nf/EAB4AAAMBAAMBAQEAAAAAAAAAAAAECAUAAwYHCQoL/8QASxEAAgECAwMICAQDBwQCAgAHAAECAxEEEiETMVEFFEFSYXGRoSIygbHB0eHwBhUzQlNi0hYjcpKiwvE0Q1SCJGOy4gclRHODk6P/aAAw0BAfilter=true"
+        alt="Product Mockup"
+      />
+    </div>
+
+    <!-- ===== PURCHASE CTA BUTTON ===== -->
+    <div class="mt-8 text-center">
+      <div class="cta-wrap">
+        <a href="https://payhip.com/b/YOUR_PRODUCT_ID" class="cta-btn inline-block rounded-lg bg-gold px-8 py-4 text-lg font-bold text-navy-900 uppercase tracking-wider hover:bg-gold-light">
+          Get Instant Access — $9
+        </a>
+      </div>
+      <p class="mt-3 text-xs text-gray-400">Instant PDF Download &bull; 100% Secure Checkout</p>
+    </div>
+
+  </div>
+</body>
+</html>
